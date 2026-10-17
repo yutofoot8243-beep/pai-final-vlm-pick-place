@@ -6,6 +6,8 @@ MoveIt で CRANE+ V2 がピック&プレースを行います（Gazebo シミュ
 
 Physical AI 応用1講座 最終課題。
 
+**デモ動画（約80秒・等倍）: https://youtu.be/PHHKitfAc7g**
+
 ## しくみ
 
 ```
