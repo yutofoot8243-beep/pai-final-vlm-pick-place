@@ -1,0 +1,26 @@
+vlm_agent:
+  ros__parameters:
+    model_id: gemini-robotics-er-2-preview
+    fallback_model_ids: [gemini-3.5-flash, gemini-3-flash-preview, gemini-2.5-flash, gemini-3.1-flash-lite]   # 1日の無料枠切れ時に順に切替
+    thinking_budget: 1024        # 0 で高速・低精度、-1 で上限なし
+    temperature: 0.5
+
+    base_frame: base_link
+    camera_frame: camera_color_optical_frame   # URDF (use_camera:=true) の光学フレーム
+
+    # 高さはすべて base_link（= 机の天板）基準 [m]
+    pick_surface_z: 0.05         # ブロック上面
+    place_surface_z: 0.005       # トレイ上面
+    approach_z: 0.10             # 真上で向きを合わせてから降ろす高さ
+    grasp_z: 0.04                # 掴むときの link4 の高さ（pick_and_place_tf.cpp と同じ）
+    place_z: 0.06
+    lift_z: 0.12
+    gripper_offset: 0.13         # link4 から把持点までの水平距離
+    gripper_open_deg: -30.0
+    gripper_close_deg: 10.0
+
+    reach_r_min: 0.14
+    reach_r_max: 0.30
+    max_steps: 8
+    refine_pick: true            # 掴む点を画像上でブロック上面の中心に寄せる
+    velocity_scaling: 0.6
